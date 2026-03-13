@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.OwnerController">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox prefWidth="260.0" style="-fx-background-color: #0D47A1;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="5" style="-fx-padding: 30 20;">
+                    <Label text="TAK LIMITED" textFill="WHITE"><font><Font name="System Bold" size="22.0" /></font></Label>
+                    <Label text="Owner Portal" textFill="#BBDEFB"><font><Font size="14.0" /></font></Label>
+                </VBox>
+                <Separator style="-fx-background-color: #1976D2;" />
+
+                <VBox spacing="10" style="-fx-padding: 20;">
+                    <Button alignment="BASELINE_LEFT" maxWidth="Infinity" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-padding: 12 20; -fx-background-radius: 5; -fx-font-weight: bold;" text="➕ Post New Flat" />
+                </VBox>
+
+                <Region VBox.vgrow="ALWAYS" />
+                <Button alignment="CENTER" maxWidth="Infinity" onAction="#logout" style="-fx-background-color: #B71C1C; -fx-text-fill: white; -fx-padding: 15; -fx-background-radius: 0; -fx-cursor: hand;" text="LOGOUT" />
+            </children>
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <AnchorPane style="-fx-background-color: #F5F7FA;">
+            <VBox layoutX="60.0" layoutY="60.0" prefWidth="650.0" spacing="25.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-padding: 40;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
+
+                <Label text="Add New Listing" textFill="#0D47A1">
+                    <font><Font name="System Bold" size="26.0" /></font>
+                </Label>
+                <Separator />
+
+                <GridPane hgap="25.0" vgap="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50" />
+                    </columnConstraints>
+                    <children>
+                        <VBox spacing="8.0">
+                            <Label text="Location" textFill="#546E7A"><font><Font name="System Bold" size="12.0" /></font></Label>
+                            <ComboBox fx:id="cbLocation" maxWidth="Infinity" promptText="Select Area" style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-radius: 4; -fx-pref-height: 40;" />
+                        </VBox>
+                        <VBox spacing="8.0" GridPane.columnIndex="1">
+                            <Label text="Monthly Rent (BDT)" textFill="#546E7A"><font><Font name="System Bold" size="12.0" /></font></Label>
+                            <TextField fx:id="tfRent" promptText="e.g. 25000" style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-radius: 4; -fx-pref-height: 40;" />
+                        </VBox>
+                        <VBox spacing="8.0" GridPane.rowIndex="1">
+                            <Label text="Flat Size (Sq Ft)" textFill="#546E7A"><font><Font name="System Bold" size="12.0" /></font></Label>
+                            <TextField fx:id="tfSize" promptText="e.g. 1200" style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-radius: 4; -fx-pref-height: 40;" />
+                        </VBox>
+                        <HBox spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <children>
+                                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                    <Label text="Beds" textFill="#546E7A"><font><Font name="System Bold" size="12.0" /></font></Label>
+                                    <ComboBox fx:id="cbBed" maxWidth="Infinity" style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-radius: 4; -fx-pref-height: 40;" />
+                                </VBox>
+                                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                                    <Label text="Bathroom" textFill="#546E7A"><font><Font name="System Bold" size="12.0" /></font></Label>
+                                    <ComboBox fx:id="cbBath" maxWidth="Infinity" style="-fx-background-color: white; -fx-border-color: #CFD8DC; -fx-border-radius: 4; -fx-pref-height: 40;" />
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <VBox spacing="12.0" VBox.vgrow="ALWAYS">
+                    <Label text="Property Gallery" textFill="#546E7A"><font><Font name="System Bold" size="12.0" /></font></Label>
+                    <Button maxWidth="Infinity" onAction="#handleImageUpload" style="-fx-background-color: #E3F2FD; -fx-text-fill: #1565C0; -fx-border-color: #1565C0; -fx-border-style: dashed; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-height: 40; -fx-cursor: hand;" text="📂 Click to Upload Images " />
+                    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: #ECEFF1;">
+                        <content>
+                            <FlowPane fx:id="imagePreviewBox" hgap="10.0" style="-fx-padding: 10;" vgap="10.0" />
+                        </content>
+                    </ScrollPane>
+                </VBox>
+
+                <Button maxWidth="Infinity" onAction="#handlePostFlat" style="-fx-background-color: #2E7D32; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 14; -fx-background-radius: 6; -fx-cursor: hand;" text="PUBLISH PROPERTY" />
+                <Label fx:id="lblStatus" alignment="CENTER" maxWidth="Infinity" />
+            </VBox>
+        </AnchorPane>
+    </center>
+</BorderPane>

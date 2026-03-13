@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.OwnerController">
+    <children>
+        <VBox alignment="CENTER_LEFT" maxWidth="500" spacing="20" style="-fx-background-color: white; -fx-padding: 40; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+            <Label text="Complete Your Profile" textFill="#007bff"><font><Font name="System Bold" size="24"/></font></Label>
+
+            <Label text="Full Name"/>
+            <TextField fx:id="nameField" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-border-color: #ddd;"/>
+
+            <Label text="Phone Number"/>
+            <TextField fx:id="phoneField" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-border-color: #ddd;"/>
+
+            <Label text="Email Address"/>
+            <TextField fx:id="emailField" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-border-color: #ddd;"/>
+
+            <Button text="Save &amp; Continue" onAction="#saveOwnerInfo" maxWidth="Infinity" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-padding: 12; -fx-font-weight: bold;"/>
+        </VBox>
+    </children>
+</StackPane>

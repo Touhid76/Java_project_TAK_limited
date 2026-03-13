@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<!-- ROOT: HBox is now the root element with 1000x720 dimensions -->
+
+<HBox prefHeight="720.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-background-radius: 0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.TransportController">
+
+    <!-- LEFT SIDE: VISUAL & STATUS (Scaled up for 720p height) -->
+    <!-- Increased width to 380 to balance the 1000px total width -->
+    <VBox alignment="CENTER" prefWidth="380.0" spacing="15.0" style="-fx-background-color: linear-gradient(to bottom right, #1A2980, #26D0CE);">
+        <children>
+            <!-- Circular Icon Holder (Scaled Up) -->
+            <StackPane>
+                <Circle fill="WHITE" opacity="0.2" radius="90.0" />
+                <Circle fill="WHITE" opacity="0.1" radius="110.0" />
+                <Label text="✔" textFill="WHITE">
+                    <font><Font size="96.0" /></font>
+                    <effect><DropShadow color="#00000040" radius="10.0" /></effect>
+                </Label>
+            </StackPane>
+
+            <Label text="Booking Confirmed!" textFill="WHITE">
+                <font><Font name="Segoe UI Bold" size="32.0" /></font>
+                <VBox.margin><Insets top="30.0" /></VBox.margin>
+            </Label>
+
+            <Label text="Your new home awaits." textFill="#E0F7FA">
+                <font><Font size="18.0" /></font>
+            </Label>
+
+            <Separator maxWidth="150.0" opacity="0.5">
+                <VBox.margin><Insets top="30.0" /></VBox.margin>
+            </Separator>
+
+            <Label text="Step 2 of 2" textFill="#B2EBF2">
+                <font><Font name="System Bold" size="14.0" /></font>
+                <VBox.margin><Insets top="10.0" /></VBox.margin>
+            </Label>
+        </children>
+    </VBox>
+
+    <!-- RIGHT SIDE: LOGISTICS FORM (Scaled Spacing) -->
+    <!-- Increased padding and spacing to utilize the 720px height efficiently -->
+    <VBox spacing="30.0" style="-fx-padding: 50 60;" HBox.hgrow="ALWAYS">
+
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <Label text="🚚" textFill="#1A2980">
+                <font><Font size="48.0" /></font>
+            </Label>
+            <VBox spacing="5.0">
+                <Label text="Transport &amp; Shifting" textFill="#2c3e50">
+                    <font><Font name="Segoe UI Bold" size="32.0" /></font>
+                </Label>
+                <Label text="Arrange logistics now or skip to finish." textFill="#95a5a6">
+                    <font><Font size="16.0" /></font>
+                </Label>
+            </VBox>
+        </HBox>
+
+        <Separator />
+
+        <!-- Form Grid: Increased VGap and Padding for "Eye Catchy" look -->
+        <GridPane hgap="30.0" vgap="25.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50" />
+            </columnConstraints>
+            <children>
+                <!-- Pickup Address -->
+                <VBox spacing="8">
+                    <Label text="Pickup Address" textFill="#7f8c8d"><font><Font name="System Bold" size="13.0" /></font></Label>
+                    <TextField fx:id="tfPickup" promptText="Enter Address" style="-fx-background-color: #F3F6F9; -fx-padding: 15; -fx-background-radius: 8; -fx-font-size: 14;" />
+                </VBox>
+
+                <!-- Date -->
+                <VBox spacing="8" GridPane.columnIndex="1">
+                    <Label text="Shifting Date" textFill="#7f8c8d"><font><Font name="System Bold" size="13.0" /></font></Label>
+                    <DatePicker fx:id="dpDate" maxWidth="Infinity" promptText="Select Date" style="-fx-background-color: #F3F6F9; -fx-padding: 4; -fx-background-radius: 8; -fx-font-size: 14;" />
+                </VBox>
+
+                <!-- Truck Size -->
+                <VBox spacing="8" GridPane.rowIndex="1">
+                    <Label text="Truck Size" textFill="#7f8c8d"><font><Font name="System Bold" size="13.0" /></font></Label>
+                    <ComboBox fx:id="cbTruck" maxWidth="Infinity" promptText="Select Truck" style="-fx-background-color: #F3F6F9; -fx-padding: 8; -fx-background-radius: 8; -fx-font-size: 14;" />
+                </VBox>
+
+                <!-- Manpower -->
+                <VBox spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label text="Manpower (Workers)" textFill="#7f8c8d"><font><Font name="System Bold" size="13.0" /></font></Label>
+                    <TextField fx:id="tfManpower" promptText="e.g. 4" style="-fx-background-color: #F3F6F9; -fx-padding: 15; -fx-background-radius: 8; -fx-font-size: 14;" />
+                </VBox>
+            </children>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </GridPane>
+
+        <!-- Spacer to push Cost/Buttons to bottom -->
+        <Region VBox.vgrow="ALWAYS" />
+
+        <!-- Cost Dashboard: Larger fonts and padding -->
+        <HBox alignment="CENTER_LEFT" spacing="25.0" style="-fx-background-color: #FAFAFA; -fx-border-color: #EEEEEE; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 25;">
+            <VBox spacing="5.0">
+                <Label text="ESTIMATED COST" textFill="#95a5a6"><font><Font name="System Bold" size="12.0" /></font></Label>
+                <Label fx:id="lblCost" text="0.00 BDT" textFill="#2E7D32"><font><Font name="Segoe UI Black" size="36.0" /></font></Label>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="*Includes Service Charge &amp; VAT" textFill="#bdc3c7"><font><Font size="12.0" /></font></Label>
+        </HBox>
+
+        <!-- Footer Buttons: Larger touch targets -->
+        <HBox alignment="CENTER_RIGHT" spacing="20.0">
+            <Button onAction="#skip" prefWidth="240.0" style="-fx-background-color: #1A2980; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 40; -fx-cursor: hand; -fx-font-size: 14; -fx-effect: dropshadow(three-pass-box, rgba(26, 41, 128, 0.3), 15, 0, 0, 8);" text="Skip Step" />
+         <Button layoutX="270.0" layoutY="10.0" onAction="#confirmTransport" prefWidth="240.0" style="-fx-background-color: #1A2980; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 15 30; -fx-background-radius: 40; -fx-cursor: hand; -fx-font-size: 14; -fx-effect: dropshadow(three-pass-box, rgba(26, 41, 128, 0.3), 15, 0, 0, 8);" text="Confirm Logistics →" />
+        </HBox>
+
+        <Label fx:id="lblMsg" alignment="CENTER_RIGHT" maxWidth="Infinity" />
+
+    </VBox>
+</HBox>
